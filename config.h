@@ -120,7 +120,10 @@ static Key keys[] = {
 	TAGKEYS(			XK_8,		7)
 	TAGKEYS(			XK_9,		8)
 
+  { MODKEY,			                  XK_Return,	            spawn,		              {.v = termcmd } },
+	{ MODKEY|ShiftMask,		          XK_Return,	            togglescratch,	        {.v = scratchpadcmd } },
   { MODKEY,			                  XK_d,		                spawn,                  {.v = dmenucmd } },
+  
 	{ MODKEY,			                  XK_0,         		      view,     		          {.ui = ~0 } },
 	{ MODKEY|ShiftMask,		          XK_0,		                tag,	      	          {.ui = ~0 } },
 	{ MODKEY,			                  XK_minus,	              spawn,		              SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },
@@ -162,9 +165,6 @@ static Key keys[] = {
 	{ MODKEY,			                  XK_l,		                setmfact,      	        {.f = +0.05} },
 	{ MODKEY,			                  XK_semicolon,	          shiftview,	            { .i = 1 } },
 
-	{ MODKEY,			                  XK_Return,	            spawn,		              {.v = termcmd } },
-	{ MODKEY|ShiftMask,		          XK_Return,	            togglescratch,	        {.v = scratchpadcmd } },
-
 	{ MODKEY,			                  XK_z,		                incrgaps,	              {.i = +1 } },
 	{ MODKEY|ShiftMask,		          XK_z,		                incrgaps,	              {.i = -1 } },
 	{ MODKEY,			                  XK_x,		                spawn,		              SHCMD("slock & xset dpms force off; mpc pause ; pauseallmpv") },
@@ -202,7 +202,7 @@ static Key keys[] = {
 
 
 	/* { XK_Print,	spawn,		SHCMD("maim pic-full-$(date '+%y%m\\%d-%H%M-\\%S').png") }, */
-	{ shiftmask,			              XK_Print,	              spawn,		              SHCMD("maimpick") },
+	{ ShiftMask,			              XK_Print,	              spawn,		              SHCMD("maimpick") },
 	{ MODKEY,			                  XK_Print,	              spawn,		              SHCMD("dmenurecord") },
 	{ MODKEY|ShiftMask,		          XK_Print,	              spawn,		              SHCMD("dmenurecord kill") },
 	{ MODKEY,			                  XK_Delete,	            spawn,		              SHCMD("dmenurecord kill") },
